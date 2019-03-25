@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "532296414287",
+    "firebase_url": "https://smallshop-eaefc.firebaseio.com",
+    "project_id": "smallshop-eaefc",
+    "storage_bucket": "smallshop-eaefc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532296414287:android:1d067f21adca87d6",
+        "android_client_info": {
+          "package_name": "cd.mercipro.smallshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532296414287-v7j18p25bedsdsf6rsj0tn1h5k2nuk38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cd.mercipro.smallshop",
+            "certificate_hash": "1f6c18f35efdd59a911482d1f71ccb84308b3fb2"
+          }
+        },
+        {
+          "client_id": "532296414287-kvnfjbvi98mv25qmcionpgat041md87c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdqg89kIUMjru-d8EI0cM-Evi0f_8KmWo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532296414287-kvnfjbvi98mv25qmcionpgat041md87c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

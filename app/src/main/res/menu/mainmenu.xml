@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/user_profile_blue"/>
+        <item
+            android:id="@+id/nav_product"
+            android:title="Produits"
+            android:icon="@drawable/product_blue"/>
+        <item
+            android:id="@+id/nav_notification"
+            android:title="Notification"
+            android:icon="@drawable/notifications_blue"/>
+        <item
+            android:id="@+id/nav_credit"
+            android:title="Crédits"
+            android:icon="@drawable/credit_blue"/>
+        <item
+            android:id="@+id/nav_setting"
+            android:title="Paramètres"
+            android:icon="@drawable/setting_blue"/>
+        <item
+            android:id="@+id/nav_help"
+            android:title="Aide"
+            android:icon="@drawable/help_blue"/>
+    </group>
+</menu>

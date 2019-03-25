@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SmallShop</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="depenser">Dépenser</string>
+    <string name="vendre">Vendre</string>
+    <string name="ajouter">Ajouter</string>
+</resources>
