@@ -2,6 +2,8 @@ package cd.mercipro.smallshop.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,6 +17,7 @@ public class MyProductActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
     private EditText txtNom_Prod, txtPU_achat, txtPU_vente;
+    private Button btnSaveProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +29,10 @@ public class MyProductActivity extends AppCompatActivity {
         txtNom_Prod = findViewById(R.id.txtNom_Prod);
         txtPU_achat = findViewById(R.id.txtPU_achat);
         txtPU_vente = findViewById(R.id.txtPU_vente);
+        btnSaveProduct = findViewById(R.id.btnSaveProduct);
+    }
+
+    public void SaveProduct(View view){
+
     }
 }
