@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="horizontal"
-        android:background="@drawable/headerbg"
-        >
+        android:background="@drawable/headerbg">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
