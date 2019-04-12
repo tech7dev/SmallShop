@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.BuyProductActivity">
+    tools:context=".Fragments.StockAddFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:orientation="horizontal"
         android:background="@drawable/headerbg">
         <TextView
@@ -21,12 +21,12 @@
             android:textStyle="bold"
             android:textColor="@color/lightGray"
             android:textSize="30dp"
-            android:text="Effectuer Un Achat"/>
+            android:text="Mettre à jour le Stock"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:padding="10dp">
@@ -61,8 +61,28 @@
             android:layout_marginLeft="30dp"
             android:padding="10dp"
             android:background="@drawable/input_shape"
-            android:hint="Quantité sortie" />
+            android:hint="prix unitaire de vente" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:padding="10dp"
+            android:background="@drawable/input_shape"
+            android:hint="Quantité en stock" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/input_shape"
+            android:hint="Quantité à ajouter au stock" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,6 +93,7 @@
             android:background="@drawable/button_shape"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="Achat"/>
+            android:text="Ajouter au Stock"/>
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>

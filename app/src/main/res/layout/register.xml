@@ -50,7 +50,7 @@
             android:background="@drawable/avatar_edit" />
 
         <EditText
-            android:id="@+id/fullname"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

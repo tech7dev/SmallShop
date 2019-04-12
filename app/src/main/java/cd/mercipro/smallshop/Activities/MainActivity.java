@@ -1,26 +1,49 @@
 package cd.mercipro.smallshop.Activities;
 
+import android.arch.persistence.room.Room;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import  android.content.Intent;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import cd.mercipro.smallshop.Fragments.BuyProductFragment;
+import cd.mercipro.smallshop.Fragments.HomeFragment;
+import cd.mercipro.smallshop.Fragments.MyProductFragment;
+import cd.mercipro.smallshop.Models.ShopDatabase;
 import cd.mercipro.smallshop.R;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        NavigationView.OnNavigationItemSelectedListener {
 
-    private CardView buyProduct, addProduct, stock, expense;
+    public static FragmentManager fragmentManager;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
+    public static ShopDatabase shopDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        shopDatabase = Room.databaseBuilder(getApplicationContext(),ShopDatabase.class,"shopdb").build();
+        fragmentManager = getSupportFragmentManager();
+        if(findViewById(R.id.fragment_container) != null){
+            if(savedInstanceState!=null){
+                return;
+            }
+            fragmentManager.beginTransaction().add(R.id.fragment_container,new HomeFragment()).commit();
+        }
 
         // Navigation drawer
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -29,38 +52,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //defining Cards
-        buyProduct = (CardView) findViewById(R.id.buyProduct);
-        addProduct = (CardView) findViewById(R.id.addProduct);
-        stock = (CardView) findViewById(R.id.stock);
-        expense = (CardView) findViewById(R.id.expense);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        //add Click listener to the cards
-        buyProduct.setOnClickListener(this);
-        addProduct.setOnClickListener(this);
-        stock.setOnClickListener(this);
-        expense.setOnClickListener(this);
     }
     public void onClick(View v){
-        Intent i;
-        switch (v.getId()){
-            case R.id.buyProduct : i = new Intent(this, BuyProductActivity.class); startActivity(i); break;
-            case R.id.addProduct : i = new Intent(this, AddProductActivity.class); startActivity(i); break;
-            case R.id.stock : i = new Intent(this, ProductActivity.class); startActivity(i); break;
-            case R.id.expense : i = new Intent(this, RegisterActivity.class); startActivity(i); break;
-            default:break;
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(drawerToggle.onOptionsItemSelected(item)){
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
 
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_profile) {
+            // Handle the camera action
+        }
+        else if (id == R.id.nav_product) {
+            this.fragmentManager.beginTransaction().replace(R.id.fragment_container,new MyProductFragment())
+                    .addToBackStack(null).commit();
+        }
+        else if (id == R.id.nav_credit) {
+
+        }
+        else if (id == R.id.nav_notification) {
+
+        }
+
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

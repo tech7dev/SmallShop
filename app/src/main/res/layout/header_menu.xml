@@ -16,17 +16,19 @@
         android:layout_gravity="center"/>
 
     <TextView
+        android:id="@+id/txtUsername"
+        android:text="Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Julien Baraka"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
     <TextView
+        android:id="@+id/txtUserEmail"
+        android:text="julienbaraka@gmail.com"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="julienbaraka@gmail.com"
         android:textColor="@color/gray"
         android:textStyle="bold"
         android:textAlignment="center"

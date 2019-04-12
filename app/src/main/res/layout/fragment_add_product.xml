@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activities.AddProductActivity">
+    tools:context=".Fragments.AddProductFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -21,39 +20,30 @@
             android:textStyle="bold"
             android:textColor="@color/lightGray"
             android:textSize="30dp"
-            android:text="Ajouter Un Produit au Stock"/>
+            android:text="Ajout à mes Produits"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_gravity="center"
         android:padding="10dp">
 
-        <TextView
+        <EditText
+            android:id="@+id/txtNom_Prod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:gravity="center"
-            android:layout_gravity="left"
-            android:paddingTop="20dp"
-            android:textStyle="bold"
-            android:text="selectionner un produit"/>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:background="@drawable/input_shape"
-            android:hint="selection un produit" >
-        </Spinner>
+            android:hint="Nom du Produit" />
 
         <EditText
+            android:id="@+id/txtPU_achat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -64,6 +54,7 @@
             android:hint="prix unitaire d'achat" />
 
         <EditText
+            android:id="@+id/txtPU_vente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -73,16 +64,8 @@
             android:background="@drawable/input_shape"
             android:hint="prix unitaire de vente" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:padding="10dp"
-            android:background="@drawable/input_shape"
-            android:hint="Quantité en stock" />
         <Button
+            android:id="@+id/btnSaveProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -92,6 +75,7 @@
             android:background="@drawable/button_shape"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="Ajouter au Stock"/>
+            android:text="Ajouter à mes Produits"/>
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>
