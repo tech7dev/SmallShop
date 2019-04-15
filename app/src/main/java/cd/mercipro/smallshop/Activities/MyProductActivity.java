@@ -28,6 +28,10 @@ public class MyProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_product);
 
+        //Set Title and Icon on ActionBar
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.arrow_back_white);
+        setTitle("Mes Produits");
+
         FloatingActionButton btnAddProduct = findViewById(R.id.btnAddProduct);
         btnAddProduct.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -37,6 +41,7 @@ public class MyProductActivity extends AppCompatActivity {
             }
         });
 
+        //Initialisation du RecyclerView
         RecyclerView rcvProduct = findViewById(R.id.rcvProduct);
         rcvProduct.setLayoutManager(new LinearLayoutManager(this));
         rcvProduct.setHasFixedSize(true);
@@ -44,6 +49,7 @@ public class MyProductActivity extends AppCompatActivity {
         final ProductAdapter adapter = new ProductAdapter();
         rcvProduct.setAdapter(adapter);
 
+        //ce code observe toutes modifications sur les donnees et met à jour le RecyclerView
         productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
         productViewModel.getAllproducts().observe(this, new Observer<List<Product>>(){
             @Override
@@ -54,18 +60,15 @@ public class MyProductActivity extends AppCompatActivity {
         });
     }
 
+    //Nous recuperons les données venant de l'activity AddProductActivity afin de le sauvegarder dans la base des données
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == ADD_PRODUCT_REQUEST && resultCode == RESULT_OK){
             String productName = data.getStringExtra(AddProductActivity.EXTRA_PRODUCTNAME);
-
-            String p_a = data.getStringExtra(AddProductActivity.EXTRA_PA);
-            double pa = Double.valueOf(p_a);
-
-            String p_v = data.getStringExtra(AddProductActivity.EXTRA_PV);
-            double pv = Double.valueOf(p_a);
+            double pa = data.getDoubleExtra(AddProductActivity.EXTRA_PA,0.0);
+            double pv = data.getDoubleExtra(AddProductActivity.EXTRA_PV,0.0);
 
             Product product = new Product(productName,pa,pv);
             productViewModel.insert(product);

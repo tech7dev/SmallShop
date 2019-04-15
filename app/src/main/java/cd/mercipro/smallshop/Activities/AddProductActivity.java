@@ -25,37 +25,38 @@ public class AddProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
+        //Set Title and Icon on ActionBar
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white);
         setTitle("Ajouter un Produit");
 
         txtNom_Prod = findViewById(R.id.txtNom_Prod);
-        txtPU_achat = findViewById(R.id.txtNom_Prod);
+        txtPU_achat = findViewById(R.id.txtPU_achat);
         txtPU_vente = findViewById(R.id.txtPU_vente);
 
     }
 
     private void saveProduct() {
-        String productName = txtNom_Prod.getText().toString().trim();
-        double pu_achat = Double.parseDouble(txtPU_achat.getText().toString().trim());
-        double pu_vente = Double.parseDouble(txtPU_vente.getText().toString().trim());
+        String productName = txtNom_Prod.getText().toString();
+        String pa = txtPU_achat.getText().toString();
+        String pv = txtPU_vente.getText().toString();
 
-        if(productName.trim().isEmpty() || String.valueOf(pu_achat).isEmpty() || String.valueOf(pu_vente).isEmpty()){
+        if(productName.trim().isEmpty()){
             Toast.makeText(this,"Veuillez entrer le Nom du produit", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(String.valueOf(pu_achat).isEmpty()){
+        else if(pa.trim().isEmpty()){
             Toast.makeText(this,"Veuillez entrer le Prix d'achat", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(String.valueOf(pu_vente).isEmpty()){
+        else if(pv.trim().isEmpty()){
             Toast.makeText(this,"Veuillez entrer le Prix de vente", Toast.LENGTH_SHORT).show();
             return;
         }
 
         Intent data = new Intent();
         data.putExtra(EXTRA_PRODUCTNAME, productName);
-        data.putExtra(EXTRA_PA, pu_achat);
-        data.putExtra(EXTRA_PV, pu_vente);
+        data.putExtra(EXTRA_PA, pa);
+        data.putExtra(EXTRA_PV, pv);
 
         setResult(RESULT_OK, data);
         finish();

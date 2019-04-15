@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (id == R.id.nav_product) {
             Intent myProduct = new Intent(getApplicationContext(),MyProductActivity.class);
             startActivity(myProduct);
-            finish();
         }
         else if (id == R.id.nav_credit) {
 

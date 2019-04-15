@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:maxLines="2"
+            android:maxLines="1"
             android:layout_toStartOf="@id/sep"
             android:paddingRight="10dp"
             android:text="PA" />
@@ -44,8 +44,8 @@
             android:id="@+id/sep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:maxLines="2"
+            android:textSize="22sp"
             android:layout_toStartOf="@id/txtPV"
             android:paddingRight="10dp"
             android:text="|" />
@@ -55,6 +55,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentEnd="true"
+            android:text="PV" />
+
+        <!-- Label -->
+        <TextView
+            android:id="@+id/txtLabelPA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:layout_toStartOf="@id/txtPV"
+            android:layout_below="@id/txtPA"
+            android:layout_marginRight="30dp"
+            android:text="PA" />
+
+        <TextView
+            android:id="@+id/txtLabelPV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:ellipsize="end"
+            android:layout_below="@id/txtPV"
             android:layout_alignParentEnd="true"
             android:text="PV" />
     </RelativeLayout>
