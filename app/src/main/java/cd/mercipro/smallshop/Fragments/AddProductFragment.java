@@ -35,6 +35,7 @@ public class AddProductFragment extends Fragment {
         txtPU_achat = view.findViewById(R.id.txtNom_Prod);
         txtPU_vente = view.findViewById(R.id.txtPU_vente);
         btnSaveProduct = view.findViewById(R.id.btnSaveProduct);
+
         btnSaveProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,12 +43,6 @@ public class AddProductFragment extends Fragment {
                 double pu_achat = Double.parseDouble(txtPU_achat.getText().toString());
                 double pu_vente = Double.parseDouble(txtPU_vente.getText().toString());
 
-                Product product = new Product();
-                product.setProductName(productName);
-                product.setPu_achat(pu_achat);
-                product.setPu_vente(pu_vente);
-
-                MainActivity.shopDatabase.productDao().insert(product);
                 Toast.makeText(getActivity(),"Produit "+txtNom_Prod.getText()+" est ajouté avec succès",Toast.LENGTH_SHORT).show();
 
                 txtNom_Prod.setText("");

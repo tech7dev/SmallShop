@@ -2,6 +2,7 @@ package cd.mercipro.smallshop.Models;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -26,7 +27,7 @@ public interface ProductDao {
     @Update(onConflict = OnConflictStrategy.IGNORE)
     void update(Product product);
 
-    @Query("DELETE FROM product")
+    @Delete
     void delete(Product product);
 
     @Query("DELETE FROM product")

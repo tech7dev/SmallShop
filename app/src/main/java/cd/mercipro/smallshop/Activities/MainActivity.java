@@ -1,24 +1,19 @@
 package cd.mercipro.smallshop.Activities;
 
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import  android.content.Intent;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import cd.mercipro.smallshop.Fragments.BuyProductFragment;
 import cd.mercipro.smallshop.Fragments.HomeFragment;
-import cd.mercipro.smallshop.Fragments.MyProductFragment;
 import cd.mercipro.smallshop.Models.ShopDatabase;
 import cd.mercipro.smallshop.R;
 
@@ -107,8 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Handle the camera action
         }
         else if (id == R.id.nav_product) {
-            this.fragmentManager.beginTransaction().replace(R.id.fragment_container,new MyProductFragment())
-                    .addToBackStack(null).commit();
+            Intent myProduct = new Intent(getApplicationContext(),MyProductActivity.class);
+            startActivity(myProduct);
+            finish();
         }
         else if (id == R.id.nav_credit) {
 

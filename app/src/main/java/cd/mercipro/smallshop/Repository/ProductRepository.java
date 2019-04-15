@@ -28,11 +28,11 @@ public class ProductRepository {
         new UpdateProductAsyncTask(productDao).execute(product);
     }
     public void delete(Product product){
-
+        new DeleteProductAsyncTask(productDao).execute(product);
     }
 
     public void deleteAllProduct(){
-
+        new DeleteAllProductAsyncTask(productDao).execute();
     }
 
     public LiveData<List<Product>> getAllproducts(){

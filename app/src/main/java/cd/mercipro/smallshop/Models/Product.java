@@ -7,8 +7,7 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "product",
-        indices = {@Index(value = "productName", unique = true)})
+@Entity(tableName = "product")
 public class Product {
 
     @PrimaryKey(autoGenerate = true)
@@ -24,6 +23,7 @@ public class Product {
     @NonNull
     public double pu_vente;
 
+    @Ignore
     public Product(){}
 
     public Product(@NonNull String productName, double pu_achat, double pu_vente) {
