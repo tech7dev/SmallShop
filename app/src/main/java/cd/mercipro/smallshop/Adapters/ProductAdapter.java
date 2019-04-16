@@ -15,6 +15,7 @@ import cd.mercipro.smallshop.R;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
     private List<Product> products = new ArrayList<>();
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -42,6 +43,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         notifyDataSetChanged();
     }
 
+    //get position of product in recyclerview
+    public Product getProductAt(int position) {
+        return products.get(position);
+    }
+
     class ProductHolder extends RecyclerView.ViewHolder{
         private TextView txtProductName;
         private TextView txtPA; //prix d'achat
@@ -52,6 +58,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             txtProductName = itemView.findViewById(R.id.txtProductName);
             txtPA = itemView.findViewById(R.id.txtPA);
             txtPV = itemView.findViewById(R.id.txtPV);
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener != null && position != RecyclerView.NO_POSITION){
+                        listener.onItemClick(products.get(position));
+                    }
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(Product product);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 }

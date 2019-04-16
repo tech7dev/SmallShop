@@ -12,18 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.AddProductActivity"
-            android:parentActivityName=".Activities.MyProductActivity">
-        </activity>
-        <activity android:name=".Activities.MyProductActivity"
+        <activity
+            android:name=".Activities.AddEditProductActivity"
+            android:parentActivityName=".Activities.MyProductActivity"></activity>
+        <activity
+            android:name=".Activities.MyProductActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".Activities.MainActivity"/>
+            android:parentActivityName=".Activities.MainActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <activity android:name=".Activities.ReportActivity" />
         <activity android:name=".Activities.CustomerActivity" />
-        <activity android:name=".Activities.MainActivity"
+        <activity
+            android:name=".Activities.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
