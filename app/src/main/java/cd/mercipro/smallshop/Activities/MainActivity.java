@@ -12,9 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import cd.mercipro.smallshop.Fragments.HomeFragment;
-import cd.mercipro.smallshop.Models.ShopDatabase;
 import cd.mercipro.smallshop.R;
 
 
@@ -24,14 +22,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static FragmentManager fragmentManager;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
-    public static ShopDatabase shopDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        shopDatabase = Room.databaseBuilder(getApplicationContext(),ShopDatabase.class,"shopdb").build();
         fragmentManager = getSupportFragmentManager();
         if(findViewById(R.id.fragment_container) != null){
             if(savedInstanceState!=null){
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
         return true;
     }
 
@@ -112,8 +108,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }

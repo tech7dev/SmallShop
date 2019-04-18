@@ -87,10 +87,11 @@ public class MyProductActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Product product) {
                 Intent intent = new Intent(MyProductActivity.this, AddEditProductActivity.class);
-                intent.putExtra(AddEditProductActivity.EXTRA_PRODUCTID, String.valueOf(product.getProductID()));
-                intent.putExtra(AddEditProductActivity.EXTRA_PRODUCTNAME, product.getProductName());
+                intent.putExtra(AddEditProductActivity.EXTRA_ProductID, String.valueOf(product.getProductID()));
+                intent.putExtra(AddEditProductActivity.EXTRA_ProductName, product.getProductName());
                 intent.putExtra(AddEditProductActivity.EXTRA_PA, String.valueOf(product.getPu_achat()));
                 intent.putExtra(AddEditProductActivity.EXTRA_PV, String.valueOf(product.getPu_vente()));
+                intent.putExtra(AddEditProductActivity.EXTRA_Quantity, String.valueOf(product.getQuantity()));
                 startActivityForResult(intent,EDIT_PRODUCT_REQUEST);
             }
         });
@@ -103,28 +104,30 @@ public class MyProductActivity extends AppCompatActivity {
 
         //add product
         if (requestCode == ADD_PRODUCT_REQUEST && resultCode == RESULT_OK){
-            String productName = data.getStringExtra(AddEditProductActivity.EXTRA_PRODUCTNAME);
+            String productName = data.getStringExtra(AddEditProductActivity.EXTRA_ProductName);
             double pa = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_PA));
             double pv = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_PV));
+            double quantity = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_Quantity));
 
-            Product product = new Product(productName,pa,pv);
+            Product product = new Product(productName,pa,pv,quantity);
             productViewModel.insert(product);
             Toast.makeText(this,"Le produit a été sauvé", Toast.LENGTH_SHORT).show();
         }
 
         //edit product
         else if (requestCode == EDIT_PRODUCT_REQUEST && resultCode == RESULT_OK){
-            String id = data.getStringExtra(AddEditProductActivity.EXTRA_PRODUCTID);
+            String id = data.getStringExtra(AddEditProductActivity.EXTRA_ProductID);
             if(id == "-1"){
                 Toast.makeText(this,"Produit n'a pas été mis à jour",Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            String productName = data.getStringExtra(AddEditProductActivity.EXTRA_PRODUCTNAME);
+            String productName = data.getStringExtra(AddEditProductActivity.EXTRA_ProductName);
             double pa = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_PA));
             double pv = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_PV));
+            double quantity = Double.parseDouble(data.getStringExtra(AddEditProductActivity.EXTRA_Quantity));
 
-            Product product = new Product(productName,pa,pv);
+            Product product = new Product(productName,pa,pv,quantity);
             product.setProductID(Integer.parseInt(id));
             productViewModel.update(product);
             Toast.makeText(this,"Produit a été mis à jour",Toast.LENGTH_SHORT).show();

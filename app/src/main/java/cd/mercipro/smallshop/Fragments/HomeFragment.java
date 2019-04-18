@@ -1,6 +1,7 @@
 package cd.mercipro.smallshop.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import cd.mercipro.smallshop.Activities.MainActivity;
+import cd.mercipro.smallshop.Activities.MyProductActivity;
 import cd.mercipro.smallshop.R;
 
 /**
@@ -52,12 +54,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                         .addToBackStack(null).commit();
                 break;
             case R.id.stockAdd :
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new StockAddFragment())
-                        .addToBackStack(null).commit();
+
                 break;
             case R.id.stockView :
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new StockViewFragment())
-                        .addToBackStack(null).commit();
+                Intent myProduct = new Intent(getActivity(), MyProductActivity.class);
+                startActivity(myProduct);
                 break;
             case R.id.expenseView :
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ExpenseViewFragment())

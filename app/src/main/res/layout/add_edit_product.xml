@@ -1,52 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Activities.AddEditProductActivity">
 
-        <EditText
-            android:id="@+id/txtProductname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:padding="10dp"
-            android:background="@drawable/input_shape"
-            android:hint="Nom du Produit" />
+    <EditText
+        android:id="@+id/txtProductname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:hint="Nom du Produit"
+        android:padding="10dp"
+        android:textAlignment="center" />
+    <!--android:background="@drawable/input_shape"-->
+    <EditText
+        android:id="@+id/txtPU_achat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:hint="Prix unitaire d'Achat"
+        android:padding="10dp"
+        android:textAlignment="center" />
 
-        <EditText
-            android:id="@+id/txtPU_achat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:padding="10dp"
-            android:background="@drawable/input_shape"
-            android:hint="prix unitaire d'achat" />
+    <EditText
+        android:id="@+id/txtPU_vente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:hint="Prix unitaire de Vente"
+        android:padding="10dp"
+        android:textAlignment="center" />
 
-        <EditText
-            android:id="@+id/txtPU_vente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:padding="10dp"
-            android:background="@drawable/input_shape"
-            android:hint="prix unitaire de vente" />
+    <EditText
+        android:id="@+id/txtQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:hint="Quantité"
+        android:padding="10dp"
+        android:textAlignment="center" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btnSaveProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_save_white"
-            android:layout_gravity="bottom|end"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"/>
-    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSaveProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_save_white" />
+</LinearLayout>

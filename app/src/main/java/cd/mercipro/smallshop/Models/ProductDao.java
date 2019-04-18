@@ -12,10 +12,10 @@ import java.util.List;
 
 @Dao
 public interface ProductDao {
-    @Query("SELECT * FROM product WHERE productID = :id LIMIT 1")
+    @Query("SELECT * FROM Product WHERE productID = :id LIMIT 1")
     Product findDirectorById(int id);
 
-    @Query("SELECT * FROM product WHERE productName = :productName LIMIT 1")
+    @Query("SELECT * FROM Product WHERE productName = :productName LIMIT 1")
     Product findProductByName(String productName);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -30,9 +30,9 @@ public interface ProductDao {
     @Delete
     void delete(Product product);
 
-    @Query("DELETE FROM product")
+    @Query("DELETE FROM Product")
     void deleteAllProducts();
 
-    @Query("SELECT * FROM product ORDER BY productName ASC")
+    @Query("SELECT * FROM Product ORDER BY productName ASC")
     LiveData<List<Product>> getAllProduct();
 }

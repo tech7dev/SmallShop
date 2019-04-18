@@ -8,14 +8,14 @@ import java.util.List;
 
 import cd.mercipro.smallshop.Models.Product;
 import cd.mercipro.smallshop.Models.ProductDao;
-import cd.mercipro.smallshop.Models.ShopDatabase;
+import cd.mercipro.smallshop.Models.SmallShopDatabase;
 
 public class ProductRepository {
     private ProductDao productDao;
     private LiveData<List<Product>> allproducts;
 
     public ProductRepository(Application application){
-        ShopDatabase database = ShopDatabase.getInstance(application);
+        SmallShopDatabase database = SmallShopDatabase.getInstance(application);
         productDao = database.productDao();
         allproducts = productDao.getAllProduct();
     }

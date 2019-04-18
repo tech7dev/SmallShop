@@ -29,8 +29,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
         Product currentProduct = products.get(position);
         holder.txtProductName.setText(currentProduct.getProductName());
-        holder.txtPA.setText(String.valueOf(currentProduct.getPu_achat()));
+        //holder.txtPA.setText(String.valueOf(currentProduct.getPu_achat()));
         holder.txtPV.setText(String.valueOf(currentProduct.getPu_vente()));
+        holder.txtQuantity.setText(String.valueOf(currentProduct.getQuantity()));
     }
 
     @Override
@@ -50,14 +51,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
 
     class ProductHolder extends RecyclerView.ViewHolder{
         private TextView txtProductName;
-        private TextView txtPA; //prix d'achat
+        //private TextView txtPA; //prix d'achat
         private TextView txtPV; //prix de vente
+        private TextView txtQuantity; //quantité
 
         public ProductHolder(@NonNull View itemView) {
             super(itemView);
             txtProductName = itemView.findViewById(R.id.txtProductName);
-            txtPA = itemView.findViewById(R.id.txtPA);
+            //txtPA = itemView.findViewById(R.id.txtPA);
             txtPV = itemView.findViewById(R.id.txtPV);
+            txtQuantity = itemView.findViewById(R.id.txtQuantity);
 
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
