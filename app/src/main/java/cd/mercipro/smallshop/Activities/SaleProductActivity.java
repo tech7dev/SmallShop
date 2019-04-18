@@ -21,14 +21,14 @@ public class SaleProductActivity extends AppCompatActivity {
         setTitle("Vendre un Produit");
 
         //add new product
-        FloatingActionButton btnAddProduct = findViewById(R.id.btnSaveSaleProduct);
-        btnAddProduct.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(SaleProductActivity.this, SalesViewActivity.class);
-                startActivityForResult(intent,ADD_Sale_Request);
-            }
-        });
+//        FloatingActionButton btnAddProduct = findViewById(R.id.btnSaveSaleProduct);
+//        btnAddProduct.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                Intent intent = new Intent(SaleProductActivity.this, SalesViewActivity.class);
+//                startActivityForResult(intent,ADD_Sale_Request);
+//            }
+//        });
 
     }
 }

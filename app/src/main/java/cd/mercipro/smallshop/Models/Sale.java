@@ -1,13 +1,15 @@
 package cd.mercipro.smallshop.Models;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.Query;
 import android.support.annotation.NonNull;
-import java.util.Date;
-
+//import java.util.Date;
 import static android.arch.persistence.room.ForeignKey.CASCADE;
-//import java.sql.Date;
+import java.sql.Date;
+import java.util.List;
 
 
 @Entity(tableName = "Sale", foreignKeys = @ForeignKey(entity = Product.class,
@@ -20,7 +22,7 @@ public class Sale {
     public int saleID;
 
     @NonNull
-    public String productID;
+    public int productID;
 
     @NonNull
     public double PT;
@@ -31,7 +33,7 @@ public class Sale {
     @NonNull
     public Date dateSale;
 
-    public Sale(@NonNull String productID, double PT, double quantity, @NonNull Date dateSale) {
+    public Sale(@NonNull int productID, double PT, double quantity, @NonNull Date dateSale) {
         this.productID = productID;
         this.PT = PT;
         this.quantity = quantity;
@@ -47,7 +49,7 @@ public class Sale {
     }
 
     @NonNull
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
@@ -63,4 +65,10 @@ public class Sale {
     public Date getDateSale() {
         return dateSale;
     }
+
+//    @Query("SELECT * FROM Sale WHERE dateSale BETWEEN date(:from) AND date(:to)")
+//    LiveData<List<Sale>> fetchSalesBetweenDate(String from, String to);
+
+//    @Query("select * from Sale where dateSale=Date(:date)")
+//    LiveData<List<Sale>> fetchSaleByDate(String date);
 }

@@ -7,13 +7,15 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import java.sql.Date;
 
-@Database(entities = {Product.class}, version = 1)
+@Database(entities = {Product.class, Sale.class}, version = 1)
 public abstract class SmallShopDatabase extends RoomDatabase {
     private static SmallShopDatabase instance;
     private static final String DB_NAME = "SmallShopDatabase";
 
     public abstract ProductDao productDao();
+    public abstract SaleDao saleDao();
 
     public static synchronized SmallShopDatabase getInstance(final Context context) {
         if (instance == null) {
@@ -40,17 +42,24 @@ public abstract class SmallShopDatabase extends RoomDatabase {
     };
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void>{
         private ProductDao productDao;
+        private SaleDao saleDao;
 
         private PopulateDbAsyncTask(SmallShopDatabase db){
             productDao = db.productDao();
+            saleDao = db.saleDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+            //insert default data into "Product" table
             productDao.insert(new Product("Orange", 100,150,12));
             productDao.insert(new Product("Citron", 100,150,4));
             productDao.insert(new Product("Avocat", 200,400,8));
             return null;
+
+            //insert default data into "Sale" table
+            //saleDao.insert(new Sale(1,200,4,{d'2019-04-18'}));
         }
     }
 }
