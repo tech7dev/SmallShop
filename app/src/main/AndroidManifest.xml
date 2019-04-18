@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.SalesViewActivity"></activity>
+        <activity android:name=".Activities.SaleProductActivity" />
         <activity
             android:name=".Activities.AddEditProductActivity"
-            android:parentActivityName=".Activities.MyProductActivity"></activity>
+            android:parentActivityName=".Activities.MyProductActivity" />
         <activity
             android:name=".Activities.MyProductActivity"
             android:launchMode="singleTop"

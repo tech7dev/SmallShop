@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cd.mercipro.smallshop.Activities.SaleProductActivity;
 import cd.mercipro.smallshop.Activities.MainActivity;
 import cd.mercipro.smallshop.Activities.MyProductActivity;
 import cd.mercipro.smallshop.R;
@@ -19,7 +20,7 @@ import cd.mercipro.smallshop.R;
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
-    private CardView buyProduct, stockAdd, stockView, expenseView;
+    private CardView buyProduct, salesView, stockView, expenseView;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -33,13 +34,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         //defining Cards
         buyProduct = view.findViewById(R.id.buyProduct);
-        stockAdd = view.findViewById(R.id.stockAdd);
+        salesView = view.findViewById(R.id.salesView);
         stockView = view.findViewById(R.id.stockView);
         expenseView = view.findViewById(R.id.expenseView);
 
         //register Click listener to the cards
         buyProduct.setOnClickListener(this);
-        stockAdd.setOnClickListener(this);
+        salesView.setOnClickListener(this);
         stockView.setOnClickListener(this);
         expenseView.setOnClickListener(this);
 
@@ -50,11 +51,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buyProduct :
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new BuyProductFragment())
-                        .addToBackStack(null).commit();
+                Intent buyProduct = new Intent(getActivity(), SaleProductActivity.class);
+                startActivity(buyProduct);
                 break;
-            case R.id.stockAdd :
-
+            case R.id.salesView :
+                Intent salesView = new Intent(getActivity(), SaleProductActivity.class);
+                startActivity(salesView);
                 break;
             case R.id.stockView :
                 Intent myProduct = new Intent(getActivity(), MyProductActivity.class);

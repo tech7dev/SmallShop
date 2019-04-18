@@ -11,26 +11,26 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 @Dao
-public interface ProductDao {
+public interface SaleDao {
 
-    @Query("SELECT * FROM Product WHERE productName = :productName LIMIT 1")
-    Product findProductByName(String productName);
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Product product);
+    @Query("SELECT * FROM Sale WHERE productID = :productID LIMIT 1")
+    Sale findSaleByProductID(String productID);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Product... products);
+    void insert(Sale sale);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insert(Sale... sales);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    void update(Product product);
+    void update(Sale sale);
 
     @Delete
-    void delete(Product product);
+    void delete(Sale sale);
 
-    @Query("DELETE FROM Product")
-    void deleteAllProducts();
+    @Query("DELETE FROM Sale")
+    void deleteAllSales();
 
-    @Query("SELECT * FROM Product ORDER BY productName ASC")
-    LiveData<List<Product>> getAllProduct();
+    @Query("SELECT * FROM Sale ORDER BY DateSale ASC")
+    LiveData<List<Sale>> getAllSales();
 }
