@@ -13,7 +13,7 @@ public class SaleProductActivity extends AppCompatActivity {
     public static final int ADD_Sale_Request = 1;
     private EditText txtProductname, txtPT, txtPU, txtQuantity;
     public static final String EXTRA_ProductID = "cd.mercipro.smallshop.EXTRA_ProductID";
-    public static final String EXTRA_PT = "cd.mercipro.smallshop.EXTRA_PA"; //Prix total
+    public static final String EXTRA_PT = "cd.mercipro.smallshop.EXTRA_PT"; //Prix total
     public static final String EXTRA_Quantity = "cd.mercipro.smallshop.EXTRA_Quantity"; //Quantity
 
     @Override

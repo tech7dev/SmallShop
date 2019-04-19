@@ -75,7 +75,7 @@ public class SalesViewActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                 saleViewModel.delete(adapter.getSaleAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(SalesViewActivity.this,"Produit supprimé",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SalesViewActivity.this,"Vente supprimé",Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(rcvSalesView);
 

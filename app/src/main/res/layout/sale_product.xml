@@ -21,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent">
                 <Spinner
+                    android:id="@+id/spinnerProduct"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="15dp"
@@ -45,7 +46,7 @@
                     android:textStyle="bold"
                     android:textSize="25sp"
                     android:padding="10dp"
-                    android:text="Selectionner un Produit"/>
+                    android:text="Nom du Produit"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
@@ -79,6 +80,7 @@
                                 android:textColor="@color/grayConner"
                                 android:text="PU : "/>
                             <TextView
+                                android:id="@+id/txtViewPU"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -103,6 +105,7 @@
                                 android:textColor="@color/grayConner"
                                 android:text="Stock : "/>
                             <TextView
+                                android:id="@+id/txtQuanityStock"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -138,6 +141,7 @@
                                 android:background="@color/grayConner"/>
 
                             <EditText
+                                android:id="@+id/txtQuantitySale"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical|center_horizontal"
@@ -179,6 +183,7 @@
                         android:textColor="@color/colorPrimary"
                         android:text="Prix Total: "/>
                     <TextView
+                        android:id="@+id/txtViewTotalPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"

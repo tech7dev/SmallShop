@@ -14,7 +14,7 @@ import java.util.List;
 public interface SaleDao {
 
     @Query("SELECT * FROM Sale WHERE productID = :productID LIMIT 1")
-    Sale findSaleByProductID(String productID);
+    Sale findSaleByProductID(int productID);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Sale sale);
