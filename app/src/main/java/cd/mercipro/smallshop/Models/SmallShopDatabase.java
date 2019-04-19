@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import java.sql.Date;
 
-@Database(entities = {Product.class, Sale.class}, version = 1)
+@Database(entities = {Product.class, Sale.class}, version = 2)
 public abstract class SmallShopDatabase extends RoomDatabase {
     private static SmallShopDatabase instance;
     private static final String DB_NAME = "SmallShopDatabase";

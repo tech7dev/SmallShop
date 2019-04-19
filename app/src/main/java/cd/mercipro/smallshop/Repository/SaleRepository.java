@@ -23,7 +23,7 @@ public class SaleRepository {
     }
 
     public void insert(Sale sale){
-        new InsertProductAsyncTask(saleDao).execute(sale);
+        new InsertSaleAsyncTask(saleDao).execute(sale);
     }
 
     public void update(Sale sale){
@@ -41,10 +41,10 @@ public class SaleRepository {
         return allsales;
     }
 
-    public static class InsertProductAsyncTask extends AsyncTask<Sale,Void,Void>{
+    public static class InsertSaleAsyncTask extends AsyncTask<Sale,Void,Void>{
         private SaleDao saleDao;
 
-        private InsertProductAsyncTask(SaleDao saleDao){
+        private InsertSaleAsyncTask(SaleDao saleDao){
             this.saleDao = saleDao;
         }
 

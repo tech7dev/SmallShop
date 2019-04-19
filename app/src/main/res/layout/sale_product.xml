@@ -20,14 +20,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent">
-                <Spinner
-                    android:id="@+id/spinnerProduct"
+                <Button
+                    android:id="@+id/btnSelectProduct"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="15dp"
-                    android:background="@drawable/spinner_shape">
+                    android:background="@drawable/spinner_shape"
+                    android:drawableRight="@drawable/dropdown_32px"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Sélectionner un Produit">
 
-                </Spinner>
+                </Button>
             </LinearLayout>
 
             <LinearLayout
@@ -44,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="25sp"
+                    android:textSize="22sp"
                     android:padding="10dp"
                     android:text="Nom du Produit"/>
                 <View
