@@ -3,8 +3,8 @@
     <color name="colorPrimary">#5C2FE7</color>
     <color name="colorPrimaryDark">#3F15BE</color>
     <color name="backgroundColor">#fcfcfc</color>
-    <color name="lightGray">#ededed</color>
-    <color name="gray">#e5e5e5</color>
+    <color name="lightGray">#f3f3f3</color>
+    <color name="gray">#e7e7e7</color>
     <color name="deepPurple">#7c4dff</color>
     <color name="white">#ffffff</color>
     <color name="yello">#989809</color>
@@ -13,4 +13,5 @@
     <color name="greenLight">#07A819</color>
     <color name="blueGray">#D3D3FD</color>
     <color name="grayConner">#808080</color>
+    <color name="dimGray">#dcdcdc</color>
 </resources>

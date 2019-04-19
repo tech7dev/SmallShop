@@ -56,10 +56,13 @@ public abstract class SmallShopDatabase extends RoomDatabase {
             productDao.insert(new Product("Orange", 100,150,12));
             productDao.insert(new Product("Citron", 100,150,4));
             productDao.insert(new Product("Avocat", 200,400,8));
-            return null;
 
             //insert default data into "Sale" table
-            //saleDao.insert(new Sale(1,200,4,{d'2019-04-18'}));
+            saleDao.insert(new Sale(1,200,4, "2019-04-18"));
+            saleDao.insert(new Sale(2,300,6, "2019-04-18"));
+            saleDao.insert(new Sale(3,300,8, "2019-04-19"));
+
+            return null;
         }
     }
 }

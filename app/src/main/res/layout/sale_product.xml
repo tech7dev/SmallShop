@@ -1,9 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.SaleProductActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/spinner_shape">
+
+                </Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/layout_lightgray_shape">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:padding="10dp"
+                    android:text="Selectionner un Produit"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/dimGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="0.3">
+
+                        <!-- textView for PU-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:textSize="25sp"
+                                android:textColor="@color/grayConner"
+                                android:text="PU : "/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:textSize="25sp"
+                                android:textStyle="bold"
+                                android:text="000"/>
+
+                        </LinearLayout>
+
+                        <!-- textView for Quantity-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:textSize="25sp"
+                                android:textColor="@color/grayConner"
+                                android:text="Stock : "/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:textSize="25sp"
+                                android:textStyle="bold"
+                                android:text="000"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_height="100dp"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="0.7"
+                        android:layout_margin="5dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_gravity="center"
+                                android:textStyle="bold"
+                                android:text="Entrer Quantité à vendre"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:background="@color/grayConner"/>
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:text="0"
+                                android:textAlignment="center"
+                                android:textSize="50sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/green"
+                                android:padding="10dp"/>
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="@color/dimGray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textSize="28sp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Prix Total: "/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:text="000"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnSaveSaleProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_save_white" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

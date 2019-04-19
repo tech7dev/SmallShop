@@ -31,9 +31,9 @@ public class Sale {
     public double quantity;
 
     @NonNull
-    public Date dateSale;
+    public String dateSale;
 
-    public Sale(@NonNull int productID, double PT, double quantity, @NonNull Date dateSale) {
+    public Sale(@NonNull int productID, double PT, double quantity, @NonNull String dateSale) {
         this.productID = productID;
         this.PT = PT;
         this.quantity = quantity;
@@ -62,7 +62,7 @@ public class Sale {
     }
 
     @NonNull
-    public Date getDateSale() {
+    public String getDateSale() {
         return dateSale;
     }
 
