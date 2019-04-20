@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import cd.mercipro.smallshop.Activities.SaleProductActivity;
 import cd.mercipro.smallshop.Activities.MainActivity;
-import cd.mercipro.smallshop.Activities.MyProductActivity;
+import cd.mercipro.smallshop.Activities.StockProductActivity;
 import cd.mercipro.smallshop.Activities.SalesViewActivity;
 import cd.mercipro.smallshop.R;
 
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 startActivity(salesView);
                 break;
             case R.id.stockView :
-                Intent myProduct = new Intent(getActivity(), MyProductActivity.class);
+                Intent myProduct = new Intent(getActivity(), StockProductActivity.class);
                 startActivity(myProduct);
                 break;
             case R.id.expenseView :

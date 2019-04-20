@@ -1,6 +1,5 @@
 package cd.mercipro.smallshop.Activities;
 
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Handle the camera action
         }
         else if (id == R.id.nav_product) {
-            Intent myProduct = new Intent(getApplicationContext(),MyProductActivity.class);
+            Intent myProduct = new Intent(getApplicationContext(), StockProductActivity.class);
             startActivity(myProduct);
         }
         else if (id == R.id.nav_credit) {

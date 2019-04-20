@@ -22,8 +22,8 @@ import cd.mercipro.smallshop.ViewModel.SaleViewModel;
 
 public class SalesViewActivity extends AppCompatActivity {
     private SaleViewModel saleViewModel;
-    public static final int ADD_Sale_Request = 1;
     public static final int Edit_Sale_Request = 2;
+    public static final int Save_Sale_Request = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +34,13 @@ public class SalesViewActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.arrow_back_white);
         setTitle("Dernières Ventes");
 
-        //add new product
+        //add new sale
         FloatingActionButton btnSaleProduct = findViewById(R.id.btnSaleProduct);
         btnSaleProduct.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(SalesViewActivity.this, SaleProductActivity.class);
-                startActivityForResult(intent,ADD_Sale_Request);
+                startActivityForResult(intent,Save_Sale_Request);
             }
         });
 
@@ -83,11 +83,11 @@ public class SalesViewActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new SaleAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(Sale sale) {
-                Intent intent = new Intent(SalesViewActivity.this, SaleProductActivity.class);
-                intent.putExtra(SaleProductActivity.EXTRA_ProductID, String.valueOf(sale.getProductID()));
-                intent.putExtra(SaleProductActivity.EXTRA_PT, String.valueOf(sale.getPT()));
-                intent.putExtra(SaleProductActivity.EXTRA_Quantity, String.valueOf(sale.getQuantity()));
-                startActivityForResult(intent,Edit_Sale_Request);
+//                Intent intent = new Intent(SalesViewActivity.this, SaleProductActivity.class);
+//                intent.putExtra(SaleProductActivity.EXTRA_ProductID, String.valueOf(sale.getProductID()));
+//                intent.putExtra(SaleProductActivity.EXTRA_PT, String.valueOf(sale.getPT()));
+//                intent.putExtra(SaleProductActivity.EXTRA_QuantitySale, String.valueOf(sale.getQuantity()));
+//                startActivityForResult(intent,Edit_Sale_Request);
             }
         });
     }
@@ -97,16 +97,15 @@ public class SalesViewActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        //add product
-        if (requestCode == ADD_Sale_Request && resultCode == RESULT_OK){
+        if (requestCode == Save_Sale_Request && resultCode == RESULT_OK){
             int productID = Integer.parseInt(data.getStringExtra(SaleProductActivity.EXTRA_ProductID));
+            double pu = Double.parseDouble(data.getStringExtra(SaleProductActivity.EXTRA_PU));
             double pt = Double.parseDouble(data.getStringExtra(SaleProductActivity.EXTRA_PT));
-            //Date date = new Date();
-            double quantity = Double.parseDouble(data.getStringExtra(SaleProductActivity.EXTRA_Quantity));
+            double qty = Double.parseDouble(data.getStringExtra(SaleProductActivity.EXTRA_QuantitySale));
 
-            Sale sale = new Sale(productID ,pt ,quantity ,"2019-4-19");
+            Sale sale = new Sale(productID ,pt ,qty ,"2019-4-19");
             saleViewModel.insert(sale);
-            Toast.makeText(this,"La vente a été enregistré", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Vente a été enregistré avec succès",Toast.LENGTH_SHORT);
         }
     }
 }

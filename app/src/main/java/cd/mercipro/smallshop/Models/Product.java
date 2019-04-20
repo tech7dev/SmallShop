@@ -25,6 +25,10 @@ public class Product {
     @NonNull
     public double quantity;
 
+    @Ignore
+    public Product() {
+    }
+
     public Product(@NonNull String productName, double pu_achat, double pu_vente, double quantity) {
         this.productName = productName;
         this.pu_achat = pu_achat;

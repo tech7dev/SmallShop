@@ -10,9 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -25,12 +29,16 @@ import cd.mercipro.smallshop.ViewModel.ProductViewModel;
 
 public class SaleProductActivity extends AppCompatActivity {
     private ProductViewModel productViewModel;
+    private String productID;
     public static final int ADD_Sale_Request = 1;
-    private EditText txtProductname, txtPT, txtPU, txtQuantity;
+    private EditText txtQuantitySale;
+    private TextView txtProductNameSale, txtViewTotalPrice, txtViewPU, txtQuanityStock;
     private Button btnSelectProduct;
     public static final String EXTRA_ProductID = "cd.mercipro.smallshop.EXTRA_ProductID";
-    public static final String EXTRA_PT = "cd.mercipro.smallshop.EXTRA_PT"; //Prix total
-    public static final String EXTRA_Quantity = "cd.mercipro.smallshop.EXTRA_Quantity"; //Quantity
+    public static final String EXTRA_PU = "cd.mercipro.smallshop.EXTRA_PU";
+    public static final String EXTRA_PT = "cd.mercipro.smallshop.EXTRA_PT";
+    public static final String EXTRA_ProductName = "cd.mercipro.smallshop.EXTRA_ProductName";
+    public static final String EXTRA_QuantitySale = "cd.mercipro.smallshop.EXTRA_QuantitySale";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +49,51 @@ public class SaleProductActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.arrow_back_white);
         setTitle("Vendre un Produit");
 
+        //init textview
+        txtProductNameSale = findViewById(R.id.txtProductNameSale);
+        txtViewPU = findViewById(R.id.txtViewPU);
+        txtQuanityStock =  findViewById(R.id.txtQuanityStock);
+        txtViewTotalPrice = findViewById(R.id.txtViewTotalPrice);
+
+        //init editText
+        txtQuantitySale = findViewById(R.id.txtQuantitySale);
+        txtQuantitySale.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            //Lorsque l'utilisateur termine à editer la valeur de la quantité, nous calculons le prix total
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(String.valueOf(s)!= null){
+                    try {
+                        String q = txtQuantitySale.getText().toString().trim();
+                        double qty = Double.parseDouble(String.valueOf(q));
+                        double pu = Double.parseDouble(txtViewPU.getText().toString());
+                        double pt = pu * qty;
+                        txtViewTotalPrice.setText(String.valueOf(pt));
+                        Log.d("Prix total",String.valueOf(pt));
+                    }
+                    catch(Exception e){}
+                }
+            }
+        });
+
         //ajouter une nouvelle vente
         FloatingActionButton btnSaveSaleProduct = findViewById(R.id.btnSaveSaleProduct);
         btnSaveSaleProduct.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(SaleProductActivity.this, SalesViewActivity.class);
-                startActivityForResult(intent,ADD_Sale_Request);
+                saveSaleProduct();
             }
         });
 
-        //boutton Select Product via AlertDialog
+        //button Select Product via AlertDialog
         btnSelectProduct = findViewById(R.id.btnSelectProduct);
         btnSelectProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,12 +119,14 @@ public class SaleProductActivity extends AppCompatActivity {
                     }
                 });
 
-                //clickListener to edit item
+                //clickListener to select product
                 adapter.setOnItemClickListener(new SelectProductAdapter.OnItemClickListener(){
                     @Override
                     public void onItemClick(Product product) {
-                        int productID =  Integer.valueOf(product.getProductID());
-                        Toast.makeText(SaleProductActivity.this,"Id du Produit"+productID,Toast.LENGTH_SHORT);
+                        productID =  String.valueOf(product.getProductID());
+                        txtProductNameSale.setText(String.valueOf(product.getProductName()));
+                        txtViewPU.setText(String.valueOf(product.getPu_vente()));
+                        txtQuanityStock.setText(String.valueOf(product.getQuantity()));
                     }
                 });
                 mBuilder.setView(alertView);
@@ -90,6 +134,25 @@ public class SaleProductActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+
+    private void saveSaleProduct() {
+        String q = txtQuantitySale.getText().toString();
+        if(q.trim().isEmpty()){
+            Toast.makeText(this,"Veuillez entrer la quantité à vendre", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(productID!=null){
+            Intent data = new Intent();
+            data.putExtra(EXTRA_ProductID, productID);
+            data.putExtra(EXTRA_ProductName, txtProductNameSale.getText().toString());
+            data.putExtra(EXTRA_PU, txtViewPU.getText().toString().toString());
+            data.putExtra(EXTRA_QuantitySale, txtQuantitySale.getText().toString());
+            data.putExtra(EXTRA_PT, txtViewTotalPrice.getText().toString());
+
+            setResult(RESULT_OK, data);
+            finish();
+        }
 
     }
 }

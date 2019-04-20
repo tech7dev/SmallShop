@@ -24,7 +24,7 @@ import cd.mercipro.smallshop.Models.Product;
 import cd.mercipro.smallshop.R;
 import cd.mercipro.smallshop.ViewModel.ProductViewModel;
 
-public class MyProductActivity extends AppCompatActivity {
+public class StockProductActivity extends AppCompatActivity {
     private ProductViewModel productViewModel;
     public static final int ADD_PRODUCT_REQUEST = 1;
     public static final int EDIT_PRODUCT_REQUEST = 2;
@@ -43,7 +43,7 @@ public class MyProductActivity extends AppCompatActivity {
         btnAddProduct.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MyProductActivity.this, AddEditProductActivity.class);
+                Intent intent = new Intent(StockProductActivity.this, AddEditProductActivity.class);
                 startActivityForResult(intent,ADD_PRODUCT_REQUEST);
             }
         });
@@ -78,7 +78,7 @@ public class MyProductActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                 productViewModel.delete(adapter.getProductAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(MyProductActivity.this,"Produit supprimé",Toast.LENGTH_SHORT).show();
+                Toast.makeText(StockProductActivity.this,"Produit supprimé",Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(rcvProduct);
 
@@ -86,7 +86,7 @@ public class MyProductActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new ProductAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(Product product) {
-                Intent intent = new Intent(MyProductActivity.this, AddEditProductActivity.class);
+                Intent intent = new Intent(StockProductActivity.this, AddEditProductActivity.class);
                 intent.putExtra(AddEditProductActivity.EXTRA_ProductID, String.valueOf(product.getProductID()));
                 intent.putExtra(AddEditProductActivity.EXTRA_ProductName, product.getProductName());
                 intent.putExtra(AddEditProductActivity.EXTRA_PA, String.valueOf(product.getPu_achat()));
